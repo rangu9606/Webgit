@@ -21,3 +21,13 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Free Trial(0d9f70bc-a0c9-45ac-84cb-1119f0a651c8)'
+    appType: 'webApp'
+    appName: 'web'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
+
+
