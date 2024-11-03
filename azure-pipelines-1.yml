@@ -7,7 +7,8 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Windows Latest'
+  name: Default
+  vmImage: DESKTOP-OT8NVOD
 
 variables:
   solution: '**/*.sln'
