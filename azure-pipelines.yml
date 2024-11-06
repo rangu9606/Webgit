@@ -7,8 +7,7 @@ trigger:
 - master
 
 pool:
-  name: 'Default'
-  vmImage: 'DESKTOP-OT8NVOD'
+  vmImage: 'ubuntu latest'
 
 variables:
   solution: '**/*.sln'
