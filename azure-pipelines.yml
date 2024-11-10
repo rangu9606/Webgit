@@ -31,3 +31,21 @@ steps:
   inputs:
     platform: '$(MSBuildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: build
+    projects: '**/*.csproj'
+    configuration: --configuration $(buildConfiguration)
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'webapp'
